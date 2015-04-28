@@ -6,8 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
+@ImportResource("security.xml")
 public class CustomerApp extends SpringBootServletInitializer {
 
     /**
