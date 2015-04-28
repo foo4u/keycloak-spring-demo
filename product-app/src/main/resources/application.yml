@@ -1,0 +1,15 @@
+server:
+  port: 9093
+  contextPath: /product-portal
+
+database:
+  service:
+    url: http://localhost:9091/database/products
+
+customer:
+  service:
+    url: http://localhost:9092/customer-portal/
+
+spring:
+  freemarker:
+    cache: false

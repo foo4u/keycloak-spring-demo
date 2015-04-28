@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
+    }
+}
+
+ext {
+    keycloakVersion = '1.2.0.RC1-SNAPSHOT'
+    springVersion = '4.1.4.RELEASE'
+    springBootVersion = '1.2.3.RELEASE'
+    springSecurityVersion = '3.2.7.RELEASE'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'spring-boot'
+    apply plugin: 'war'
+
+    group = 'org.keycloak.springsecurity.demo'
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+    repositories {
+        jcenter()
+        mavenLocal()
+    }
+
+    dependencies {
+        compile "org.slf4j:slf4j-api:1.7.10"
+        compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+        compile "org.springframework.security:spring-security-web:${springSecurityVersion}"
+        compile "org.springframework.security:spring-security-config:${springSecurityVersion}"
+        compile "org.keycloak:keycloak-spring-security-adapter:${keycloakVersion}"
+        compile "net.rossillo.mvc.cache:spring-mvc-cache-control:1.1.1-RELEASE"
+
+        testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    }
+}
+
+project('customer-app') {
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter-freemarker:${springBootVersion}"
+    }
+}
+
+project('product-app') {
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter-freemarker:${springBootVersion}"
+    }
+}
