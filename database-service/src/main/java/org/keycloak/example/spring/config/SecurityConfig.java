@@ -36,16 +36,6 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter
         return new NullAuthenticatedSessionStrategy();
     }
 
-    @Override
-    protected KeycloakAuthenticationProcessingFilter keycloakAuthenticationProcessingFilter() throws Exception {
-        KeycloakAuthenticationProcessingFilter filter = super.keycloakAuthenticationProcessingFilter();
-
-        filter.setAllowSessionCreation(false);
-        filter.setContinueChainBeforeSuccessfulAuthentication(true);
-
-        return filter;
-    }
-
     @Bean
     public FilterRegistrationBean keycloakAuthenticationProcessingFilterRegistrationBean(
             KeycloakAuthenticationProcessingFilter filter) {
