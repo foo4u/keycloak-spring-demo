@@ -6,5 +6,6 @@
   "resource": "customer-portal",
   "credentials": {
     "secret": "98223c47-bd12-4103-abb4-7ac72c7b4634"
-  }
+  },
+  "principal-attribute": "email"
 }
