@@ -27,7 +27,8 @@ subprojects {
 
     repositories {
         jcenter()
-        mavenLocal()
+        maven { url "https://repo.fugu.io/artifactory/ext-snapshot-local/" }
+//        mavenLocal()
     }
 
     dependencies {
