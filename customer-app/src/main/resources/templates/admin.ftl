@@ -8,7 +8,13 @@
 <body>
 
 <header>
-    <a href="${productServiceUrl}">Products</a> | <a href="<@spring.url '/sso/logout' />">Logout</a>
+    <a href="${productServiceUrl}">Products</a> |
+    <form action="<@spring.url '/sso/logout' />" method="post">
+        <input type="hidden"
+               name="${_csrf.parameterName}"
+               value="${_csrf.token}"/>
+        <input type="submit" name="submit" value="Logout"/>
+    </form>
 </header>
 
 <h1>${serviceName} Administration</h1>
