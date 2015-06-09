@@ -9,8 +9,10 @@ buildscript {
 }
 
 ext {
-    keycloakVersion = '1.3.0.Beta1-SNAPSHOT'
-    springVersion = '4.1.4.RELEASE'
+    keycloakVersion = '1.2.1.Smartling-SNAPSHOT'
+    keycloakExtrasVersion = '0.3.0-RELEASE'
+    resteasyVersion = '3.0.10.Final'
+    springVersion = '4.1.6.RELEASE'
     springBootVersion = '1.2.3.RELEASE'
     springSecurityVersion = '3.2.7.RELEASE'
 }
@@ -43,6 +45,8 @@ subprojects {
 project('customer-app') {
     dependencies {
         compile "org.springframework.boot:spring-boot-starter-freemarker:${springBootVersion}"
+        compile "org.springframework:spring-web:${springVersion}"
+        compile "org.springframework:spring-webmvc:${springVersion}"
     }
 }
 
